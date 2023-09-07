@@ -39,7 +39,7 @@ describe('links are visible', () => {
         //Arrange the queries
         const { getByTestId } = render(<Nav />);
 
-        //Assert  the valid outcomes using the matcher, toHaveTextContent
+        //Assert  the valid outcomes using the matcher, toHaveTextContent (asserts that both links must have their text contents inserted. If either assertion fails, this test will fail)
         expect(getByTestId('link')).toHaveTextContent('Oh Snap!');
         expect(getByTestId('about')).toHaveTextContent('About me')
     });
