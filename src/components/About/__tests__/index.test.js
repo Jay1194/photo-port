@@ -14,14 +14,22 @@ import About from '..';
 // use the describe function to declare the component we're testing
 describe('About component', () => {
     
-    // First Test
+    // First Test (verify that the component is rendering without errors) first argument, a string declares what is being tested.
     it('renders', () => {
-    render(<About />);
+        //second argument, a callback function runs the test
+        render(<About />);
     });
 
     // Second Test
     it('matches snapshot DOM node structure', () => {
+        //returns a snapshot of the About component
         const{ asFragment } = render(<About />);
+        //use the toMatchSnapshot matcher to assert that snapshots will match
         expect(asFragment()).toMatchSnapshot();
     });
 })
+
+/* Inside the test function, render(<About />); is used to render the "About" component
+, and asFragment() is called to get a representation of the rendered component. 
+Then, the toMatchSnapshot() matcher is used to assert that the current rendering 
+matches the stored snapshot.*/
