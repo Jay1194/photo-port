@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Nav from './components/Nav/index';
 import About from './components/About/index';
 import Gallery from './components/Gallery';
+import ContactForm from "./components/Contact";
 
 function App() {
   // initializing the category state as an array of a few objects (lifted state to app.js)
@@ -25,6 +26,7 @@ const [currentCategory, setCurrentCategory] = useState(categories[0]);
       currentCategory={currentCategory}
       ></Nav>
       <main>
+        <ContactForm></ContactForm>
         <Gallery currentCategory={currentCategory}></Gallery>
        <About></About>
       </main>
