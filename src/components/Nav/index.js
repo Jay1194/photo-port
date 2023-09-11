@@ -7,6 +7,8 @@ const Nav = (props) => {
         categories = [],
         setCurrentCategory,
         currentCategory,
+        contactSelected,
+        setContactSelected
     } = props;
     
     // we can use the useEffect Hook by invoking the function (Assign the DOM node in the function body of the callback function)
@@ -31,21 +33,23 @@ const Nav = (props) => {
             <ul className="flex-row">
                 <li className="mx-2">
                     <a data-testid="about" 
-                    href="#about"
+                    href="#about" onClick={() => setContactSelected(false)}
                     >
                       About me
                     </a>
                 </li>
                 <li>
-                  <span>Contact</span>
+                  <span onClick={() => setContactSelected(true)} >Contact</span>
                 </li>
                 {categories.map((category) => (
                     <li className={`mx-1 ${
-                        currentCategory.name === category.name && 'navActive'
-                        }`} key={category.name}>
+                        currentCategory.name === category.name && !contactSelected && 'navActive'
+                        }`}
+                      key={category.name}>
                     <span 
                         onClick={() => {
                             setCurrentCategory(category) 
+                            setContactSelected(false);
                         }}
                     >
                         {capitalizeFirstLetter(category.name)}
