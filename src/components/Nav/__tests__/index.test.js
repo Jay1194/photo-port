@@ -7,9 +7,11 @@ const categories = [
     { name: 'portraits', description: "Portraits of people in my life" }
 ]
 
-// In order to handle props for the Nav, we need to add the categories array as well as following mock functions
+// In order to handle props for the Nav, we need to add the categories array as well as following mock functions (declare props)
 const mockCurrentCategory = jest.fn();
 const mockSetCurrentCategory = jest.fn();
+const mockContactSelected = jest.fn();
+const mockSetContactSelected = jest.fn();
 
 //we can use these mock functions as props for the Nav component to render
 it('renders', () => {
@@ -17,11 +19,13 @@ it('renders', () => {
         categories={categories}
         mockSetCurrentCategory={mockSetCurrentCategory}
         currentCategory={mockCurrentCategory}
+        contactSelected={mockContactSelected}
+        setContactSelected={mockSetContactSelected}
         />);
 })
 afterEach(cleanup);
 
-//describe function to declare what this test suite will be testing (checks for components rendering)
+//describe function to declare what this test suite will be testing (checks for components rendering) (we must use the additional mock functions as props for the Nav component to render each test)
 describe('Nav component', () => {
     // baseline test
     it('renders', () => {
